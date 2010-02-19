@@ -55,4 +55,4 @@ class RootController(web.core.Controller):
     
     def __lookup__(self, article, *parts, **data):
         web.core.request.path_info_pop()
-        return ArticleController(unicode(article)), parts
+        return Article(unicode(article)), parts
