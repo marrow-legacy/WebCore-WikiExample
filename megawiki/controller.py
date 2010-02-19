@@ -54,10 +54,5 @@ class RootController(web.core.Controller):
         raise web.core.http.HTTPSeeOther(location='/WikiHome')
     
     def __lookup__(self, article, *parts, **data):
-        try:
-            controller = ArticleController(self, unicode(article))
-            web.core.request.path_info_pop()
-            return controller, parts
-
-        except:
-            raise web.core.http.HTTPNotFound()
+        web.core.request.path_info_pop()
+        return ArticleController(unicode(article)), parts
